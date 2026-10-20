@@ -27,8 +27,9 @@ one (both builds above have the same function), so nothing changes on any other 
 
 ## Use
 
-Put `edgecasefix.dll` in the game's `modules` folder and add `-k edgecasefix.dll` (spice2x).
-It writes no log. Its earlier name was `tt_fix.dll`: take that out when you switch.
+Extract the zip from [Releases](../../releases), put `edgecasefix.dll` in the game's `modules` folder
+and add `-k edgecasefix.dll` (spice2x). It writes no log. Its earlier name was `tt_fix.dll`: take that
+out when you switch.
 
 Works with 2dxtra, altfix and tracker_link loaded too. Load it before `tt_log.dll` (below).
 
@@ -37,11 +38,16 @@ Works with 2dxtra, altfix and tracker_link loaded too. Load it before `tt_log.dl
 Visual Studio 2022 or later with the C++ tools (CMake, Ninja and vcpkg come with it):
 
 ```powershell
-.\build.ps1    # build\edgecasefix.dll, build\tt_log.dll, build\ttlab.exe, dist\edgecasefix_<version>.zip
+.\build.ps1                  # version = the project VERSION in CMakeLists.txt
+.\build.ps1 -Version 1.0.1   # build\edgecasefix.dll, build\tt_log.dll, build\ttlab.exe, dist\edgecasefix-1.0.1.zip
 ```
 
 edgecasefix.dll needs nothing else. tt_log.dll uses safetyhook and zydis (vcpkg) and links against
 `lib\avs2-core.lib`, made from `lib\avs2-core.def`.
+
+Releases on GitHub are built by GitHub Actions ([.github/workflows/build.yml](.github/workflows/build.yml))
+from the tagged source. Each release lists its SHA-256 checksums in SHA256SUMS.txt, and
+`gh attestation verify <file> -R iamiamsub/edgecasefix` confirms that a file was built there.
 
 ## Test tools
 

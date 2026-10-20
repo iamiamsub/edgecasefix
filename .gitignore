@@ -7,3 +7,6 @@
 
 # tt_log recordings
 tt_log_*.csv
+
+# This PC's settings (see build.ps1)
+/build.local.ps1
