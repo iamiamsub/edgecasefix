@@ -1,22 +1,22 @@
-edgecasefix 1.0.0
-=================
+edgecasefix
+===========
 
 beatmania IIDX の細かい不具合を直す DLL です。今は次の 1 つを直します。
 
 012 版を TDJ に強制したときの皿
-  012 版を TDJ に強制して遊ぶと、BSS・MSS の終点を逆回しで取ったときに直後の皿が BAD・ミスになります
-  （IIDX 33 Sparkle Shower / 34 ZINRAI の 012 版で確認）。
+  012 版を TDJ に強制して遊ぶと、BSS・MSS の終点を逆回しで取ったときに直後の皿が BAD・ミスになります。
+  IIDX 33 Sparkle Shower と 34 ZINRAI の 012 版で確認しています。
 
-  原因: 012 版は皿の位置の履歴を 8 フレーム分しか持たず（LDJ の 60fps 用）、TDJ の 120fps では 67ms で「皿が
-  止まった」と判定します。逆回しのあと止めた皿が少し戻ると、それが新しい「回し始め」になり、直後の皿ノーツを
-  早押しで取ってしまいます。010 版は 16 フレーム分（120fps で 133ms）なので起きません。
+  原因は、012 版が皿の位置の履歴を 8 フレーム分（LDJ の 60fps 用）しか持たないことです。そのため TDJ の 120fps では、
+  67ms で「皿が止まった」と判定します。逆回しのあと止めた皿が少し戻ると、それが新しい「回し始め」になり、直後の
+  皿ノーツを早押しで取ってしまいます。010 版は 16 フレーム分（120fps で 133ms）なので起きません。
 
-  edgecasefix.dll は、TDJ（120fps）のときだけ、止まったと判定するまでを 010 版と同じ長さにします。LDJ（60fps）や
-  010 版では何もしません。ゲームの皿の処理（PlayInput_UpdateTurntable）を同じ処理の自前の関数に差し替えます。
-  012 版のその関数と 1 バイトも違わないときだけ差し替え、それ以外の版では何もしません。
+  edgecasefix.dll は TDJ（120fps）のときだけ、止まったと判定するまでの時間を 010 版と同じにします。LDJ（60fps）や
+  010 版では何もしません。ゲームの皿の処理（PlayInput_UpdateTurntable）を、同じ処理の自前の関数に差し替えます。
+  012 版のその関数と 1 バイトも違わないときだけ差し替え、それ以外のバージョンでは何もしません。
 
 使い方
-  edgecasefix.dll をゲームの modules フォルダに置き、起動のオプションに -k edgecasefix.dll を足します（spice2x）。
+  edgecasefix.dll をゲームの modules フォルダに置き、起動のオプション（spice2x）に -k edgecasefix.dll を足します。
   ログは出しません。
 
   前の名前は tt_fix.dll（1.0.0・1.0.1）です。置き換えるときは tt_fix.dll と -k tt_fix.dll を外してください。
@@ -25,7 +25,7 @@ beatmania IIDX の細かい不具合を直す DLL です。今は次の 1 つを
 
 ------------------------------------------------------------------------------------------------
 
-edgecasefix 1.0.0 fixes edge cases of beatmania IIDX. For now, one:
+edgecasefix fixes edge cases of beatmania IIDX. For now, one:
 
 The turntable of an 012 build forced to TDJ
   When a backspin or multi spin scratch is ended with a reverse, the scratch right after it is judged
