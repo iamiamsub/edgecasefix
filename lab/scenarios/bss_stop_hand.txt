@@ -1,0 +1,10 @@
+# A backspin scratch ended by stopping the turntable with the hand (no reverse), then the next scratch.
+move 60 0
+mark bss_start
+move 120 5
+mark bss_end_stop
+steps 3 1
+move 30 0
+mark next_scratch
+move 5 -6
+move 60 0

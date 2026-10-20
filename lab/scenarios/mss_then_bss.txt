@@ -1,0 +1,16 @@
+# A multi spin scratch (reverses inside it) ended with a reverse, a small move back, and a backspin
+# scratch right after.
+move 60 0
+mark mss_start
+move 60 5
+mark mss_reverse
+move 60 -5
+mark mss_end_reverse
+move 4 6
+move 9 0
+steps 1 1
+move 6 0
+mark next_bss
+move 90 -5
+move 4 6
+move 60 0

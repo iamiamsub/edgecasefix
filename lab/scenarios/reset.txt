@@ -1,0 +1,16 @@
+# PlayInput_Reset in the middle (a new stage): the game fills the ring with the position of then.
+# Moved between the last frame and the reset, then back: a start, which stops as on 010.
+move 30 4
+move 40 0
+reset -3
+steps 3
+move 40 0
+# reset while turning, then still
+move 30 4
+reset 0
+move 40 0
+# reset while turning, then turning on and a stop
+move 30 -5
+reset 2
+move 20 -5
+move 40 0

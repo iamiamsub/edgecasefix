@@ -1,0 +1,14 @@
+# Plain scratches, both ways, with long and short rests between them.
+move 60 0
+mark flick_plus
+move 5 6
+move 40 0
+mark flick_minus
+move 5 -6
+move 12 0
+mark flick_plus_soon
+move 5 6
+move 30 0
+mark flick_plus_again
+move 5 6
+move 60 0

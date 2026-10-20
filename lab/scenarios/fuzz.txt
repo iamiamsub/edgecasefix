@@ -1,0 +1,4 @@
+# Turns, flicks, stops, slow and small moves at random: every frame's state is compared.
+fuzz 30000 1
+fuzz 30000 2
+fuzz 30000 3

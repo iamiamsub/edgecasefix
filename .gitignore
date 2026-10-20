@@ -1,0 +1,9 @@
+# Build outputs
+/build/
+/dist/
+
+# ttlab traces
+/lab/out/
+
+# tt_log recordings
+tt_log_*.csv

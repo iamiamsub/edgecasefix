@@ -1,0 +1,14 @@
+# The reported trap (120 fps): a backspin scratch ended with a reverse; the hand stops the turntable,
+# it moves back 2 counts 83 ms later, and the next scratch comes 150 ms after the reverse.
+move 60 0
+mark bss_start
+move 120 5
+mark bss_end_reverse
+move 4 -6
+move 10 0
+mark drift
+steps -1 -1
+move 8 0
+mark next_scratch
+move 5 6
+move 60 0
